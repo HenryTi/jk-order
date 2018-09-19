@@ -5,7 +5,7 @@ import './App.css';
 // import logo from './logo.svg';
 import { NavView } from 'tonva-tools';
 
-const tonvaApp = 'devapp/DevApp';
+const tonvaApp = 'jk-dev/jkOrder';
 let ui:any = undefined;
 
 class App extends React.Component {
