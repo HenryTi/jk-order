@@ -1,16 +1,15 @@
 import * as React from 'react';
+import { NavView } from 'tonva-tools';
 import {CApp} from 'tonva-react-usql';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-// import logo from './logo.svg';
-import { NavView } from 'tonva-tools';
+import ui, { CMyApp } from './ui';
 
 const tonvaApp = 'JKDev/jkOrder';
-let ui:any = undefined;
 
 class App extends React.Component {
     async onLogined() {
-      let cApp = new CApp(tonvaApp, ui);
+      let cApp = new CMyApp(tonvaApp, ui);
       await cApp.start();
     }
     render() {
