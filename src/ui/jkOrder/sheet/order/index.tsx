@@ -1,12 +1,18 @@
 import * as React from 'react';
 import { SheetUI } from 'tonva-react-usql';
-import { VOrderNew } from './new';
+//import { VOrderNew } from './new';
+import { VSheetNew } from './vNew';
 import { observer } from 'mobx-react';
+import { dictionary as x } from '../../res';
 
 const orderUI:SheetUI = {
-    sheetNew: VOrderNew,
-    sheetTitle: (values:any):string => {
-        return '订单';
+    sheetNew: VSheetNew,
+    sheetTitle: (valuesWithBox:any):string => {
+        let order = x.order;
+        let title = order.title;
+        let {customer, amount} = valuesWithBox;
+        let p = {customer: customer.obj.discription, amount: amount||99};
+        return title(p);
     },
     form: {
         items: {

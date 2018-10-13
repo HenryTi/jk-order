@@ -1,5 +1,4 @@
 import _ from 'lodash';
-
 export default {
     $: {
         order: {
@@ -7,4 +6,5 @@ export default {
             title: _.template('订单 ${customer} 金额${amount}元'),
         }
     }
-}
+};
+//# sourceMappingURL=CN.js.map
