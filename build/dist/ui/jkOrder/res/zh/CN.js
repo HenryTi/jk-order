@@ -17,7 +17,7 @@ export default {
         },
         c: () => React.createElement("span", { className: "text-danger" }, "ccc"),
         order: {
-            top: 'xxx-xxx-订单顶部说明'
+            top: '订单顶部说明的说明文字，解释做单的过程'
         }
     },
     usq: '百灵威订单',
@@ -43,6 +43,14 @@ export default {
                         ratio: '换算率',
                         name: { label: '名称', placeHolder: '如果空，则显示换算率+基本包装类型' },
                     },
+                }
+            },
+            deliver: {
+                label: '发货',
+                actions: {
+                    finish: {
+                        label: '完成发货',
+                    }
                 }
             }
         },

@@ -1,18 +1,19 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { VSheetNew } from "tonva-react-usql";
-import { Page } from "tonva-tools";
-import { dictionary as x } from './res';
+//import { Page } from "tonva-tools";
+//import { dictionary as x } from './res';
+import { dictionary as x } from '../../res';
+/*
 export class VOrderNew extends VSheetNew {
-    constructor() {
-        super(...arguments);
-        this.view = () => React.createElement(Page, { header: this.label },
-            React.createElement("div", null, x.order.top),
-            this.vForm.render());
-    }
+    protected view = () => <Page header={this.label}>
+        <div>{x.order.top}</div>
+        {this.vForm.render()}
+    </Page>;
 }
+*/
 export const myOrderUI = {
-    sheetNew: VOrderNew,
+    sheetNew: VSheetNew,
     sheetTitle: (valuesWithBox) => {
         let order = x.order;
         let title = order.title;
