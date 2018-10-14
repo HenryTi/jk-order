@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { dictionary as x } from '../res';
-import { MapUI } from "tonva-react-usql";
 import { Muted } from 'tonva-react-form';
+import { MapUI } from "tonva-react-usql";
 
 const priceUI:MapUI = {
     //CMap: CMapTeamPerson,
@@ -9,19 +8,19 @@ const priceUI:MapUI = {
     //main: VMapTeamPerson,
     keys: [
         {
-            content: ({discription, id}:any) => <><Muted>{x.product}</Muted> &nbsp; {discription}</>,
-            none: ()=>x.noStaff,
+            content: ({discription, id}:any, x:any) => <><Muted>{x.product}</Muted> &nbsp; {discription}</>,
+            none: (x:any)=>x.noStaff,
         },
         {
-            content: (values:any) => {
+            content: (values:any, x:any) => {
                 let {name, id, discription, $owner} = values;
                 return <><Muted>{x.pack}</Muted> &nbsp; </>;
             },
-            valuesContent: (values:any) => {
+            valuesContent: (values:any, x:any) => {
                 let {pack, retail} = values;
                 return <div className="px-3 py-1"><div className="d-inline-block w-25">{pack.content()}</div> {retail} 元</div>;
             },
-            none: ()=>x.noPost,
+            none: (x:any)=>x.noPost,
         },
     ]
 }

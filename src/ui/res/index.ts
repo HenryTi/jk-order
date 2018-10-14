@@ -7,5 +7,6 @@ const res = {
     }
 };
 
-export const dictionary = x(res);
+let resX = x(res);
+export const dictionary = resX.x;
 export default res;

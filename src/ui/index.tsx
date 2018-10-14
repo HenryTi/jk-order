@@ -2,6 +2,7 @@ import React from 'react';
 import { VPage, Page, meInFrame } from 'tonva-tools';
 import { AppUI, CApp } from 'tonva-react-usql';
 import jkOrder from './jkOrder';
+import res from './res';
 
 class VAppMain extends VPage<CApp> {
     async showEntry(param?:any) {
@@ -18,6 +19,7 @@ class VAppMain extends VPage<CApp> {
 }
 
 const ui:AppUI = {
+    res: res,
     main: VAppMain,
     usqs: {
         "JKDev/jkOrder": jkOrder,
