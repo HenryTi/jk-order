@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TuidUI } from 'tonva-react-usql';
+import { TuidUI, FieldTuidUI } from 'tonva-react-usql';
 import { observer } from 'mobx-react';
 import { LMR, Muted } from 'tonva-react-form';
 
@@ -58,6 +58,9 @@ const product:TuidUI = {
     },
     form: {
         items: {
+            packType: {
+                autoList: true,
+            } as FieldTuidUI,
             pack: {
                 rowContent: productPackRowContent,
             }
