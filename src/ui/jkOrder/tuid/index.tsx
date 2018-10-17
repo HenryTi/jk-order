@@ -18,16 +18,16 @@ const customer:TuidUI = {
 
 const productPackRowContent = observer((values) => {
     let {id, ratio, name, $owner} = values;
-    let content;
+    let content, rText = String(ratio);
     if ($owner !== undefined) {
         let packType = $owner.valueFromFieldName('packType');
-        let packName = packType.name;
+        let packName = packType.valueFromFieldName? packType.valueFromFieldName('name') : packType['name'];
         if (packName) {
-            if (name) content = name + ' = ' + (ratio + packName);
-            else content = (ratio + packName);
+            if (name) content = name + ' = ' + (rText + packName);
+            else content = (rText + packName);
         }
     }
-    if (content === undefined) content = 'id' + id + ' ...';
+    if (content === undefined) content = (name? name + ' ' + rText : rText) + ' err: no $owner in values';
     return <div className="px-3 py-2">{content}</div>;
 });
 
@@ -50,8 +50,9 @@ const product:TuidUI = {
                 let {id, ratio, name, $owner} = values;
                 if ($owner === undefined)
                     return <>{name || ratio || 'id' + id + ' ...'}</>;
-                let packType = $owner.valueFromFieldName('packType');
-                return <>{name || (ratio + (packType && packType.name)) || 'id' + id + ' ...'}</>;
+                    let packType = $owner.valueFromFieldName('packType');
+                    let packName = packType.valueFromFieldName? packType.valueFromFieldName('name') : packType['name'];
+                    return <>{name || (ratio + packName) || 'id' + id + ' ...'}</>;
             }),
             rowContent: productPackRowContent,
         }
