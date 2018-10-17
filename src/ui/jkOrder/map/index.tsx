@@ -9,7 +9,7 @@ const priceUI:MapUI = {
     keys: [
         {
             content: ({discription, id}:any, x:any) => <><Muted>{x.product}</Muted> &nbsp; {discription}</>,
-            none: (x:any)=>x.noStaff,
+            none: (x:any)=>x.none,
         },
         {
             content: (values:any, x:any) => {
@@ -20,7 +20,7 @@ const priceUI:MapUI = {
                 let {pack, retail} = values;
                 return <div className="px-3 py-1"><div className="d-inline-block w-25">{pack.content()}</div> {retail} 元</div>;
             },
-            none: (x:any)=>x.noPost,
+            none: (x:any)=>x.none,
         },
     ]
 }
